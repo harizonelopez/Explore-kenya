@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Kenya</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!----home section starts here---->
+    <section class="home" id="home">
+        <div class="home-box">
+            <nav>
+                <div class="logo bars">
+                    <div class="bar">
+                        <i class="fa fa-bars"></i>
+                    </div>
+                    <h3>Travel Kenya</h3>
+                </div>
+                <div class="menu">
+                    <div class="close">
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Travel Packages</a></li>
+                        <li><a href="#">Destinations</a></li>
+                    </ul>
+                </div>
+                {% if current_user.is_authenticated %}
+                    <h1 align="center">Welcome <a href="#">{{ current_user.username }}</a>. We are glad to have you here.</h1>
+                    <a href="{{ url_for('logout') }}"><span>log out</span></a>
+                {% else %}
+                    <div class="signup-login">
+                        <a href="{{ url_for('signup') }}">sign up</a>
+                        <a href="{{ url_for('login') }}">login</a>
+                    </div>
+                {% endif %}
+            </nav>
+            <div class="content">
+                <h5>Travel</h5>
+                <h1>let's embark on your dream journey</h1>
+                <p>discover inspiring destinations, create unforgettable memories,
+                    and travel with confidence - adventure starts here
+                </p>
+                <div class="search">
+                    <i class="fa fa-search"></i>
+                    <input 
+                        type="text" 
+                        placeholder="search your destination..">
+                    <button>search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!----home section ends here---->
+
+    <!----Travel section starts here!---->
+    <section class="travel" id="travel">
+        <div class="container">
+            <div class="box">
+                <img src="static/Images/planning.png" alt="planning">
+                <div class="content">
+                    <h4>Seamless travel planning</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                        Odio dolorum corrupti saepe inventore mollitia eum facere, omnis in? Qui cupiditate beatae quae iure optio reiciendis
+                         aperiam praesentium ipsum eveniet voluptates?</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="static/Images/map.png" alt="map">
+                <div class="content">
+                    <h4>Tailored Experience</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                        Odio dolorum corrupti saepe inventore mollitia eum facere, omnis in? Qui cupiditate beatae quae iure optio reiciendis
+                         aperiam praesentium ipsum eveniet voluptates?</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="static/Images/trust.png" alt="planning">
+                <div class="content">
+                    <h4>Reliable and trustworthy</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                        Odio dolorum corrupti saepe inventore mollitia eum facere, omnis in? Qui cupiditate beatae quae iure optio reiciendis
+                         aperiam praesentium ipsum eveniet voluptates?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!----Travel section ends here!---->
+
+    <!----destinations starts here---->
+    <section class="destinations" id="destinations">
+        <h4 class="label">Destinations</h4>
+        <div class="container">
+            <div class="container-box">
+                <h2 class="heading">City escape and nature retreats</h2>
+                <div class="content">
+                   <p > Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae alias impedit non.
+                     Adipisci officiis voluptatum quidem suscipit, molestiae nam numquam? Vitae, eveniet consequatur? Incidunt pariatur hic,
+                      dolores fuga laboriosam porro!</p>
+                      <a href="#" >explore more <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="box">
+                    <img src="static/Images/dolphin.jpg" alt="">
+                    <div class="text">
+                        <h2>Wasini Island</h2>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="static/Images/kenya-background.jpg" alt="">
+                    <div class="text">
+                        <h2>Diani</h2>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="static/Images/balloon.jpg" alt="">
+                    <div class="text">
+                        <h2>Maasai Mara</h2>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="static/Images/Amboseli.jpg" alt="">
+                    <div class="text">
+                        <h2>Amboseli National Park</h2>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="static/Images/lake.jpg" alt="">
+                    <div class="text">
+                        <h2>Lake</h2>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="static/Images/boats.jpg" alt="">
+                    <div class="text">
+                        <h2>Lake</h2>
+                    </div>
+                </div>
+                <div class="box">
+                    <video controls autoplay muted style="width: 100%; height: 100%; object-fit: cover; border-radius: .8rem;">
+                        <source src="static/Images/Turakana-video.mp4" type="video/mp4">
+                    </video>
+                    <div class="text">
+                        <h2>Turkana</h2>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    <!----destinations ends here---->
+
+    <!----featured section starts here---->
+     <section class="featured" id="featured">
+        <div class="gallery">
+            <div class="box">
+                <div class="first-box">
+                    <h4 class="label">
+                         featured travel packages
+                    </h4>
+                    <h2 class="heading">Unlock exclusive Travel deals</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Eum consequatur eaque voluptate porro maxime .</p>
+                    <a href="#">show more <i class="fa fa-arrow-right"></i></a>
+                    <div class="image">
+                        <img src="static/Images/plane.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="static/Images/Tahi-lake-house.jpg" alt="">
+                <div class="content">
+                    <h2>Tahi lake house </h2>
+                    <p>Naivasha</p>
+                    <div class="review-and-idr">
+                        <div class="review">
+                            <i class="fa fa-star"></i>4.9  
+                        853 reviews</div>
+                        <p>ksh 3,499</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="static/Images/Eseriani-resort.jpg" alt="">
+                <div class="content">
+                    <h2>Eseriani-resort</h2>
+                    <p>Naivasha</p>
+                    <div class="review-and-idr">
+                        <div class="review">
+                            <i class="fa fa-star"></i>4.9  
+                        853 reviews</div>
+                        <p>ksh 3,499</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="static/Images/Maasai-mara.jpg" alt="">
+                <div class="content">
+                    <h2>Maasai Mara Resort</h2>
+                    <p>Narok</p>
+                    <div class="review-and-idr">
+                        <div class="review">
+                            <i class="fa fa-star"></i>4.9  
+                        853 reviews</div>
+                        <p>ksh 3,499</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <img src="static/Images/featured-3.jpg" alt="">
+                <div class="content">
+                    <h2>Diani Hotel</h2>
+                    <p>Kwale, Diani</p>
+                    <div class="review-and-idr">
+                        <div class="review">
+                            <i class="fa fa-star"></i>4.9  
+                        853 reviews</div>
+                        <p>ksh 3,499</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+    <!----featured section ends here---->
+
+    <!----feedback section starts here---->
+     <section class="feedback" id="feedback">
+        <div class="container">
+            <h4 class="label">
+                Travelers voices
+            </h4>
+            <h2 class="heading">adventurer's voices</h2>
+            <p class="paragraph">
+                Real stories from our adventurous community
+            </p>
+        </div>
+        <div class="voices">
+            <div class="voice">
+                <div class="profile">
+                    <img src="static/Images/photo1.jpg" alt="">
+                    <div class="detail">
+                        <li>Tony Stark</li>
+                        <li>Traveler</li>
+                    </div>
+                </div>
+               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni expedita debitis 
+               repellendus exercitationem incidunt, inventore veritatis animi natus illo atque explicabo odit ipsum dolore corrupti.
+            </div>
+            <div class="voice">
+                <div class="profile">
+                    <img src="static/Images/photo2.jpg" alt="">
+                    <div class="detail">
+                        <li>Scarllet Johnson</li>
+                        <li>Traveler</li>
+                    </div>
+                </div>
+               " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ea voluptas velit consequuntur,
+                 soluta reprehenderit modi blanditiis saepe numquam, obcaecati cumque quos incidunt officia nisi "
+            </div>
+            <div class="voice">
+                <div class="profile">
+                    <img src="static/Images/photo3.jpg" alt="">
+                    <div class="detail">   
+                        <li>Steven Wong</li>
+                        <li>Traveler</li>
+                    </div>
+                </div>
+               " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ea voluptas velit consequuntur,
+                 soluta reprehenderit modi blanditiis saepe numquam, obcaecati cumque quos incidunt officia nisi "
+            </div>
+            <div class="voice">
+                <div class="profile">
+                    <img src="static/Images/photo4.jpg" alt="">
+                    <div class="detail">
+                        <li>Mark Ruffalo</li>
+                        <li>Traveler</li>
+                    </div>
+                </div>
+               " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ea voluptas velit consequuntur,
+                 soluta reprehenderit modi blanditiis saepe numquam, obcaecati cumque quos incidunt officia nisi "
+            </div>
+            <div class="voice">
+                <div class="profile">
+                    <img src="static/Images/photo5.jpg" alt="">
+                    <div class="detail">
+                        <li>Brie Larson</li>
+                        <li>Traveler</li>
+                    </div>
+                </div>
+               " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ea voluptas velit consequuntur,
+                 soluta reprehenderit modi blanditiis saepe numquam, obcaecati cumque quos incidunt officia nisi "
+            </div>
+            <div class="voice">
+                <div class="profile">
+                    <img src="static/Images/photo6.jpg" alt="">
+                    <div class="detail">
+                        <li>Gwenth Paltrow</li>
+                        <li>Traveler</li>
+                    </div>
+                </div>
+               " Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ea voluptas velit consequuntur,
+                 soluta reprehenderit modi blanditiis saepe numquam, obcaecati cumque quos incidunt officia nisi "
+            </div>
+        </div>
+     </section>
+    <!----feed back section ends here---->
+
+    <!----article section starts here---->
+    <section class="article" id="article">
+        <h4 class="label">Resources</h4>
+        <h2 class="heading">latest article</h2>
+        <div class="container">
+            <div class="latest-article">
+                <img src="static/Images/hidden-game.jpg" alt="">
+                <p>Destination discovery</p>
+                <h3>10 must-visit hidden gem in south-coast</h3>
+                <div class="author">
+                    <img src="static/Images/photo7.jpg" alt="">
+                    <p>Chris Hemsworth - 9 min read</p>
+                </div>
+            </div>
+            <div class="more-article">
+                <div class="box">
+                    <div class="image">
+                        <img src="static/Images/family.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h3>Traveling with kids: tips for stress-free family adventures</h3>
+                        <li>family travel - 7 min read</li>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image">
+                        <img src="static/Images/food-article.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h3>culinary adventure: exploring world cuisines on your travels</h3>
+                        <li>food and travel - 4 min read</li>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image">
+                        <img src="static/Images/budget-travel.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h3>Traveling on budget: tips for affordable adventures</h3>
+                        <li>budget travel - 5 min read</li>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="image">
+                        <img src="static/Images/tips.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h3>Traveling with kids budget: tips for stress-free family  adventures</h3>
+                        <li>family travel - 7 min read</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!----article section ends here---->
+
+    <!----footer section starts here---->
+    <footer>
+        <section class="footer" id="footer">
+            <div class="container">
+                <div class="detail">
+                    <h3>Travel Kenya</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, enim,
+                         provident repudiandae voluptatum quos ipsam a possimus unde quisquam molestiae eius itaque nihil 
+                         laborum saepe dolores veritatis rem cumque! Aperiam?</p>
+                         <h5>get in touch</h5>
+                         <a href="mailto:harizone23@gmail.com">harizone23@gmail.com</a>
+                         
+                         <div class="social">
+                            <a href="https://www.linkedin.com/in/harizone-lopez-a267b625b" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+                            <a href="https://wa.me/+254769405130?text=Hello%20Harizone,%20I%20want%20to%20contact%20you!" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                              </svg></a>
+                            <a href="o" target="_blank"><i class="fa fa-github-square"></i></a>
+                         </div>
+                </div>
+                <div class="about-us">
+                       <h4>About us</h4>
+                       <li><a href="#">about us</a></li>
+                       <li><a href="#">our team</a></li>
+                       <li><a href="#">careers <span>we're hiring!</span></a></li>
+                       <li><a href="#">mission and values</a></li>
+                       <li><a href="#">partnerships</a></li>
+                </div>
+                <div class="about-us">
+                    <h4>Help</h4>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">booking guide</a></li>
+                    <li><a href="#">policy</a></li>
+                    <li><a href="#">site map</a></li>
+             </div>
+             <div class="about-us">
+                <h4>Resources</h4>
+                <li><a href="#">newsletter</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">gallery</a></li>
+                <li><a href="#">offers</a></li>
+            </div>    
+         </div>
+         <div class="copyright">
+            <div>
+                <p>Copyright &copy; 2024 Dev_aladinh production. All rights reserved.</p>
+                <p>Designed by<a href="https://www.linkedin.com/in/harizone-lopez-a267b625b">Harison Otieno</a></p>
+            </div>
+            <div>
+                <a href="#">term & condition</a>
+                <a href="#">privacy policy</a>
+            </div>
+             
+         </div>
+        </section>
+    </footer>
+    <!----footer section ends here---->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" 
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" i
+        ntegrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
