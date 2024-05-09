@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %} Login page {% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282c35;
+            color: #fff;
+            align-items: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        header {
+            background-color: #1e2229;
+            text-align: center;
+            padding: 1em;
+        }
+
+        h1, h2 {
+            color: #61dafb;
+        }
+
+        h3 {
+            line-height: 1.6;
+            color: #FF1493;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #a4acc4;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #373c49;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1e2229;
+            text-align: center;
+            padding: 0em 0;
+            position: fixed;
+            bottom: 0;
+            width: 65%;
+        }
+
+        a {
+            color: #00FF00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            border-bottom: 2px solid #FF6347;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1 align="center">Destination Booking page</h1>
+
+        <section>
+            <h3>Enter your desired destination details:</h3>
+            <form method="POST" action="{{ url_for('booking') }}">
+                <div class="form-group">
+                    <label for="email">Destination:</label>
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        id="destination" 
+                        name="destination" required
+                        placeholder="Enter destination here..">
+                    <br>
+                    <label for="cost">Cost:</label>
+                    <input 
+                        type="number" 
+                        class="form-control"
+                        id="cost" 
+                        name="cost" required
+                        placeholder="Enter cost here..">
+                    <br>
+                    <!--<label for="duration">Duration:</label>
+                    <input 
+                        type="number" 
+                        class="form-control"
+                        id="duration" 
+                        name="duration" required
+                        placeholder="Enter duration here..">
+                    <br>-->
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Book</button>
+            </form>
+
+        </section>
+    
+        <h5 align="center"><button class="btn btn-success"><a href="{{ url_for('home') }}">Home</a></button></h5>
+
+        <footer>
+            <p>&copy; 2024 Dev_aladinh production</p>
+        </footer>
+
+    </section>
+</body>
+</html>
+
+{% endblock %}
