@@ -7,7 +7,6 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'aladinh00-010montext'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_database.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -61,7 +60,7 @@ def signup():
         flash(' Account created successfully! Login now', 'success')
         return redirect(url_for('login'))
     
-    return render_template('signup.html', username=username)
+    return render_template('signup.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():    
