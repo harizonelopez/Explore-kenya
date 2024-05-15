@@ -17,12 +17,14 @@ login_manager = LoginManager(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+# user model
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
+# booking model
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     destination = db.Column(db.String(100), nullable=False)
@@ -47,8 +49,8 @@ def signup():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
-
         existing_user = User.query.filter_by(email=email).first()
+        
         if existing_user:
             flash('Email address is already registered. Login instead', 'danger')
             return redirect(url_for('login'))
@@ -56,7 +58,6 @@ def signup():
         new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
-
         flash(' Account created successfully! Login now', 'success')
         return redirect(url_for('login'))
     
