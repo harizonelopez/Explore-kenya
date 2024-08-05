@@ -3,10 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, logout_user, LoginManager, current_user
 from flask_migrate import Migrate
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'aladinh00-010montext'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///new_database.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -17,14 +17,12 @@ login_manager = LoginManager(app)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# user model
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
 
-# booking model
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     destination = db.Column(db.String(100), nullable=False)
@@ -41,7 +39,7 @@ def home():
 
 def get_flash_messages():
     messages = get_flashed_messages()
-    return [(message, 'info') for message in messages]  # Default category 'info' if category is not provided
+    return [(message, 'info') for message in messages]  
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -49,8 +47,8 @@ def signup():
         username = request.form['username']
         email = request.form['email']
         password = request.form['password']
+
         existing_user = User.query.filter_by(email=email).first()
-        
         if existing_user:
             flash('Email address is already registered. Login instead', 'danger')
             return redirect(url_for('login'))
@@ -58,6 +56,7 @@ def signup():
         new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
+
         flash(' Account created successfully! Login now', 'success')
         return redirect(url_for('login'))
     
@@ -89,13 +88,14 @@ def booking():
             db.session.add(new_booking)
             db.session.commit()
 
-            flash(f'Hey {current_user.username}, {destination} destination booked successfully', 'success')
+            flash(f'Hey {current_user.username}, you have successfully booked {destination} destination as your tour place.', 'success')
             return redirect(url_for('booking'))
         else:
             flash('Please log in or signup to book a destination', 'danger')
             return redirect(url_for('signup'))
 
     return render_template('book.html')
+
 
 @app.route('/logout')
 def logout():
